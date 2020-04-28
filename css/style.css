@@ -1483,3 +1483,9 @@ input[type="text"] {
 
 
 /*# sourceMappingURL=style.css.map */
+
+.changeboldprop {
+    font-weight: normal;
+    color: white;
+    text-align: center;
+}
