@@ -38,14 +38,18 @@
 
     <!-- Theme style  -->
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
+    <style>
+        #mapid { height: 260px; }
+    </style>
 </head>
 
 <body>
@@ -104,7 +108,7 @@
                             <li><span class="first-block">Email:</span><span class="second-block">muftisami2010@gmail.com</span></li>
                             <li><span class="first-block">Website:</span><span class="second-block"><a href="https://muftisamiullah.github.io">muftisamiullah</a></span></li>
                             <li><span class="first-block">Address:</span><span class="second-block">Srinagar, Jammu and Kashmir, India 190002</span></li>
-                            <li><span class="first-block">Company:</span><span class="second-block"><a href="http://www.geekzden.in">G33kz D3n</a></span></li>
+                            <li><span class="first-block">Company:</span><span class="second-block"><a href="http://www.brorinfotech.com">Bror Infotech</a></span></li>
                         </ul>
                     </div>
                     <div class="col-md-8">
@@ -569,6 +573,7 @@
             <!-- Loading stuff -->
             <p class="spinner-text monospace" style="margin-top:15px;">Crunching <a href="https://github.com/muftisamiullah">@muftisamiullah</a>'s contributions just for you.</p>
         </div>
+        <div id="mapid"></div>
         <!-- <br> -->
         <div id="fh5co-started" class="fh5co-bg-dark">
             <div class="overlay"></div>
@@ -628,7 +633,6 @@
 
         <!-- <div id="map" class="fh5co-map"></div> -->
     </div>
-
     <div id="fh5co-footer">
         <div class="container">
             <div class="row">
@@ -663,6 +667,9 @@
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> -->
     <!-- <script src="js/google_map.js"></script> -->
     <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
     <!-- Main -->
     <script src="js/main.js"></script>
     <script>
@@ -671,7 +678,18 @@
         GitHubCalendar(".calendar", "muftisamiullah", {
             responsive: true
         });
+        
     </script>
+    <script>
+    var map = L.map('mapid').setView([34.096648,74.801023], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([34.096648, 74.801023]).addTo(map)
+    .bindPopup('Bror Infotech')
+    .openPopup();
     </script>
 
 </body>
