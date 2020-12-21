@@ -682,7 +682,8 @@
         });
     </script>
     <script>
-    var map = L.map('mapid').setView([34.096648,74.801023], 14);
+    // var map = L.map('mapid').setView([34.096648,74.801023], 14);
+    var map = L.map('mapid', { dragging: !L.Browser.mobile, tap: !L.Browser.mobile }).setView([34.096648,74.801023], 14);
     map.scrollWheelZoom.disable();
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
